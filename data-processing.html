@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 DATA PROCESSING | asedqw</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 DATA PROCESSING | asedqw" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 DATA PROCESSING | asedqw" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="wy" />
+
+
+<meta name="date" content="2024-03-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="references.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> url: your book url like https://bookdown.org/yihui/bookdown</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="hello-bookdown.html"><a href="hello-bookdown.html"><i class="fa fa-check"></i><b>2</b> Hello bookdown</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="hello-bookdown.html"><a href="hello-bookdown.html#a-section"><i class="fa fa-check"></i><b>2.1</b> A section</a>
+<ul>
+<li class="chapter" data-level="" data-path="hello-bookdown.html"><a href="hello-bookdown.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>3</b> Cross-references</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>3.1</b> Chapters and sub-chapters</a></li>
+<li class="chapter" data-level="3.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>3.2</b> Captioned figures and tables</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>4</b> Parts</a></li>
+<li class="chapter" data-level="5" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>5</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>5.1</b> Footnotes</a></li>
+<li class="chapter" data-level="5.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>5.2</b> Citations</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>6</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>6.1</b> Equations</a></li>
+<li class="chapter" data-level="6.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>6.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="6.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>6.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>7</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>7.1</b> Publishing</a></li>
+<li class="chapter" data-level="7.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>7.2</b> 404 pages</a></li>
+<li class="chapter" data-level="7.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>7.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="8" data-path="data-processing.html"><a href="data-processing.html"><i class="fa fa-check"></i><b>8</b> DATA PROCESSING</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="data-processing.html"><a href="data-processing.html#select"><i class="fa fa-check"></i><b>8.1</b> select</a></li>
+<li class="chapter" data-level="8.2" data-path="data-processing.html"><a href="data-processing.html#rename"><i class="fa fa-check"></i><b>8.2</b> rename</a></li>
+<li class="chapter" data-level="8.3" data-path="data-processing.html"><a href="data-processing.html#filter"><i class="fa fa-check"></i><b>8.3</b> filter</a></li>
+<li class="chapter" data-level="8.4" data-path="data-processing.html"><a href="data-processing.html#summarise"><i class="fa fa-check"></i><b>8.4</b> summarise</a></li>
+<li class="chapter" data-level="8.5" data-path="data-processing.html"><a href="data-processing.html#group_by"><i class="fa fa-check"></i><b>8.5</b> group_by</a></li>
+<li class="chapter" data-level="8.6" data-path="data-processing.html"><a href="data-processing.html#arrange"><i class="fa fa-check"></i><b>8.6</b> arrange</a></li>
+<li class="chapter" data-level="8.7" data-path="data-processing.html"><a href="data-processing.html#join"><i class="fa fa-check"></i><b>8.7</b> *_join</a></li>
+<li class="chapter" data-level="8.8" data-path="data-processing.html"><a href="data-processing.html#dplyr-test"><i class="fa fa-check"></i><b>8.8</b> dplyr-test</a></li>
+<li class="chapter" data-level="8.9" data-path="data-processing.html"><a href="data-processing.html#applied_dplyr"><i class="fa fa-check"></i><b>8.9</b> applied_dplyr</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">asedqw</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-processing" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> DATA PROCESSING<a href="data-processing.html#data-processing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="data-processing.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<pre><code>## Warning: 程辑包&#39;dplyr&#39;是用R版本4.3.2 来建造的</code></pre>
+<pre><code>## 
+## 载入程辑包：&#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="data-processing.html#cb6-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;C:/wy/R_basic_code/demo_data/&quot;</span>, <span class="st">&quot;score.csv&quot;</span>))</span></code></pre></div>
+<pre><code>## Rows: 6 Columns: 3</code></pre>
+<pre><code>## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (2): name, type
+## dbl (1): score
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="data-processing.html#cb9-1" tabindex="-1"></a>df</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   name  type    score
+##   &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;
+## 1 Alice english    80
+## 2 Alice math       60
+## 3 Bob   english    70
+## 4 Bob   math       69
+## 5 Carol english    80
+## 6 Carol math       90</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="data-processing.html#cb11-1" tabindex="-1"></a>reward <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb11-2"><a href="data-processing.html#cb11-2" tabindex="-1"></a><span class="co"># mutate</span></span>
+<span id="cb11-3"><a href="data-processing.html#cb11-3" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">.data =</span> df, <span class="at">extra =</span> reward) </span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
+##   name  type    score extra
+##   &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
+## 1 Alice english    80     2
+## 2 Alice math       60     5
+## 3 Bob   english    70     9
+## 4 Bob   math       69     8
+## 5 Carol english    80     5
+## 6 Carol math       90     6</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="data-processing.html#cb13-1" tabindex="-1"></a><span class="fu">mutate</span>(df, </span>
+<span id="cb13-2"><a href="data-processing.html#cb13-2" tabindex="-1"></a>       <span class="at">extra1 =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">5</span>, <span class="dv">6</span>),</span>
+<span id="cb13-3"><a href="data-processing.html#cb13-3" tabindex="-1"></a>       <span class="at">extra2 =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>),</span>
+<span id="cb13-4"><a href="data-processing.html#cb13-4" tabindex="-1"></a>       <span class="at">extra3 =</span> <span class="fu">c</span>(<span class="dv">8</span>)</span>
+<span id="cb13-5"><a href="data-processing.html#cb13-5" tabindex="-1"></a>       )</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 6
+##   name  type    score extra1 extra2 extra3
+##   &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1 Alice english    80      2      1      8
+## 2 Alice math       60      5      2      8
+## 3 Bob   english    70      9      3      8
+## 4 Bob   math       69      8      3      8
+## 5 Carol english    80      5      2      8
+## 6 Carol math       90      6      1      8</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-processing.html#cb15-1" tabindex="-1"></a><span class="co"># %&gt;%</span></span>
+<span id="cb15-2"><a href="data-processing.html#cb15-2" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>))</span></code></pre></div>
+<pre><code>## [1] 55</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="data-processing.html#cb17-1" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">%&gt;%</span> <span class="fu">sum</span>()</span></code></pre></div>
+<pre><code>## [1] 55</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="data-processing.html#cb19-1" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">sum</span>(<span class="fu">abs</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span><span class="sc">:</span><span class="dv">10</span>))))</span></code></pre></div>
+<pre><code>## [1] 10.48809</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="data-processing.html#cb21-1" tabindex="-1"></a><span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-2"><a href="data-processing.html#cb21-2" tabindex="-1"></a>  <span class="fu">abs</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb21-3"><a href="data-processing.html#cb21-3" tabindex="-1"></a>  <span class="fu">sum</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb21-4"><a href="data-processing.html#cb21-4" tabindex="-1"></a>  <span class="fu">sqrt</span>()</span></code></pre></div>
+<pre><code>## [1] 10.48809</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="data-processing.html#cb23-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb23-2"><a href="data-processing.html#cb23-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">extra =</span> reward)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
+##   name  type    score extra
+##   &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
+## 1 Alice english    80     2
+## 2 Alice math       60     5
+## 3 Bob   english    70     9
+## 4 Bob   math       69     8
+## 5 Carol english    80     5
+## 6 Carol math       90     6</code></pre>
+<div id="select" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> select<a href="data-processing.html#select" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="data-processing.html#cb25-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;s&quot;</span>)) <span class="co"># starts_with 以*开头</span></span></code></pre></div>
+<pre><code>## # A tibble: 6 × 1
+##   score
+##   &lt;dbl&gt;
+## 1    80
+## 2    60
+## 3    70
+## 4    69
+## 5    80
+## 6    90</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="data-processing.html#cb27-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">&quot;e&quot;</span>)) <span class="co"># ends_with 以*结尾</span></span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   name  type    score
+##   &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;
+## 1 Alice english    80
+## 2 Alice math       60
+## 3 Bob   english    70
+## 4 Bob   math       69
+## 5 Carol english    80
+## 6 Carol math       90</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="data-processing.html#cb29-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">&quot;score&quot;</span>)) <span class="co"># contain 包含*的列</span></span></code></pre></div>
+<pre><code>## # A tibble: 6 × 1
+##   score
+##   &lt;dbl&gt;
+## 1    80
+## 2    60
+## 3    70
+## 4    69
+## 5    80
+## 6    90</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="data-processing.html#cb31-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">where</span>(is.character)) <span class="co"># 根据变量类型选取</span></span></code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+##   name  type   
+##   &lt;chr&gt; &lt;chr&gt;  
+## 1 Alice english
+## 2 Alice math   
+## 3 Bob   english
+## 4 Bob   math   
+## 5 Carol english
+## 6 Carol math</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="data-processing.html#cb33-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">where</span>(is.numeric))</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 1
+##   score
+##   &lt;dbl&gt;
+## 1    80
+## 2    60
+## 3    70
+## 4    69
+## 5    80
+## 6    90</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="data-processing.html#cb35-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">where</span>(is.numeric) <span class="sc">&amp;</span> <span class="fu">starts_with</span>(<span class="st">&quot;s&quot;</span>)) </span></code></pre></div>
+<pre><code>## # A tibble: 6 × 1
+##   score
+##   &lt;dbl&gt;
+## 1    80
+## 2    60
+## 3    70
+## 4    69
+## 5    80
+## 6    90</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="data-processing.html#cb37-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;s&quot;</span>) <span class="sc">|</span> <span class="fu">ends_with</span>(<span class="st">&quot;e&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   score name  type   
+##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  
+## 1    80 Alice english
+## 2    60 Alice math   
+## 3    70 Bob   english
+## 4    69 Bob   math   
+## 5    80 Carol english
+## 6    90 Carol math</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="data-processing.html#cb39-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">!</span><span class="fu">starts_with</span>(<span class="st">&quot;s&quot;</span>)) <span class="co"># !- 不包含</span></span></code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+##   name  type   
+##   &lt;chr&gt; &lt;chr&gt;  
+## 1 Alice english
+## 2 Alice math   
+## 3 Bob   english
+## 4 Bob   math   
+## 5 Carol english
+## 6 Carol math</code></pre>
+</div>
+<div id="rename" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> rename<a href="data-processing.html#rename" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="data-processing.html#cb41-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb41-2"><a href="data-processing.html#cb41-2" tabindex="-1"></a>  <span class="fu">select</span>(name, type, score) <span class="sc">%&gt;%</span> </span>
+<span id="cb41-3"><a href="data-processing.html#cb41-3" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">total_score =</span> score)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   name  type    total_score
+##   &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;
+## 1 Alice english          80
+## 2 Alice math             60
+## 3 Bob   english          70
+## 4 Bob   math             69
+## 5 Carol english          80
+## 6 Carol math             90</code></pre>
+</div>
+<div id="filter" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> filter<a href="data-processing.html#filter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="data-processing.html#cb43-1" tabindex="-1"></a><span class="co">#比较关系的算符: &lt;, &gt;, &lt;=, &gt;=, == (equal), != (not equal), %in%, is.na() 和 !is.na()</span></span>
+<span id="cb43-2"><a href="data-processing.html#cb43-2" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(score <span class="sc">==</span> <span class="dv">90</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 3
+##   name  type  score
+##   &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;
+## 1 Carol math     90</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data-processing.html#cb45-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(score <span class="sc">&gt;=</span> <span class="dv">80</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 3
+##   name  type    score
+##   &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;
+## 1 Alice english    80
+## 2 Carol english    80
+## 3 Carol math       90</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data-processing.html#cb47-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(type <span class="sc">==</span> <span class="st">&quot;english&quot;</span>, score <span class="sc">&gt;=</span> <span class="dv">75</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 3
+##   name  type    score
+##   &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;
+## 1 Alice english    80
+## 2 Carol english    80</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="data-processing.html#cb49-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(type <span class="sc">==</span> <span class="st">&quot;english&quot;</span> <span class="sc">&amp;</span> score <span class="sc">&gt;=</span> <span class="dv">75</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 3
+##   name  type    score
+##   &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;
+## 1 Alice english    80
+## 2 Carol english    80</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data-processing.html#cb51-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(score <span class="sc">==</span> <span class="dv">70</span> <span class="sc">|</span> score <span class="sc">==</span> <span class="dv">90</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 3
+##   name  type    score
+##   &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;
+## 1 Bob   english    70
+## 2 Carol math       90</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="data-processing.html#cb53-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(score <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">70</span>, <span class="dv">90</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 3
+##   name  type    score
+##   &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;
+## 1 Bob   english    70
+## 2 Carol math       90</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="data-processing.html#cb55-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(score <span class="sc">==</span> <span class="fu">max</span>(score))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 3
+##   name  type  score
+##   &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;
+## 1 Carol math     90</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="data-processing.html#cb57-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(score <span class="sc">&gt;</span> <span class="fu">mean</span>(score))</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 3
+##   name  type    score
+##   &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;
+## 1 Alice english    80
+## 2 Carol english    80
+## 3 Carol math       90</code></pre>
+</div>
+<div id="summarise" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> summarise<a href="data-processing.html#summarise" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-processing.html#cb59-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean_score =</span> <span class="fu">mean</span>(score))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 1
+##   mean_score
+##        &lt;dbl&gt;
+## 1       74.8</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-processing.html#cb61-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">sd_score =</span> <span class="fu">sd</span>(score))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 1
+##   sd_score
+##      &lt;dbl&gt;
+## 1     10.6</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="data-processing.html#cb63-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(</span>
+<span id="cb63-2"><a href="data-processing.html#cb63-2" tabindex="-1"></a>  <span class="at">mean_score   =</span> <span class="fu">mean</span>(score),</span>
+<span id="cb63-3"><a href="data-processing.html#cb63-3" tabindex="-1"></a>  <span class="at">median_score =</span> <span class="fu">median</span>(score),</span>
+<span id="cb63-4"><a href="data-processing.html#cb63-4" tabindex="-1"></a>  <span class="at">n            =</span> <span class="fu">n</span>(),</span>
+<span id="cb63-5"><a href="data-processing.html#cb63-5" tabindex="-1"></a>  <span class="at">sum          =</span> <span class="fu">sum</span>(score)</span>
+<span id="cb63-6"><a href="data-processing.html#cb63-6" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 4
+##   mean_score median_score     n   sum
+##        &lt;dbl&gt;        &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;
+## 1       74.8           75     6   449</code></pre>
+</div>
+<div id="group_by" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> group_by<a href="data-processing.html#group_by" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="data-processing.html#cb65-1" tabindex="-1"></a><span class="co"># 分组汇总</span></span>
+<span id="cb65-2"><a href="data-processing.html#cb65-2" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb65-3"><a href="data-processing.html#cb65-3" tabindex="-1"></a>  <span class="fu">group_by</span>(name) <span class="sc">%&gt;%</span></span>
+<span id="cb65-4"><a href="data-processing.html#cb65-4" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb65-5"><a href="data-processing.html#cb65-5" tabindex="-1"></a>    <span class="at">mean_score =</span> <span class="fu">mean</span>(score),</span>
+<span id="cb65-6"><a href="data-processing.html#cb65-6" tabindex="-1"></a>    <span class="at">sd_score   =</span> <span class="fu">sd</span>(score)</span>
+<span id="cb65-7"><a href="data-processing.html#cb65-7" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 3
+##   name  mean_score sd_score
+##   &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt;
+## 1 Alice       70     14.1  
+## 2 Bob         69.5    0.707
+## 3 Carol       85      7.07</code></pre>
+</div>
+<div id="arrange" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> arrange<a href="data-processing.html#arrange" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="data-processing.html#cb67-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(score) <span class="co"># aescend</span></span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   name  type    score
+##   &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;
+## 1 Alice math       60
+## 2 Bob   math       69
+## 3 Bob   english    70
+## 4 Alice english    80
+## 5 Carol english    80
+## 6 Carol math       90</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-processing.html#cb69-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="sc">-</span>score) <span class="co"># descend</span></span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   name  type    score
+##   &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;
+## 1 Carol math       90
+## 2 Alice english    80
+## 3 Carol english    80
+## 4 Bob   english    70
+## 5 Bob   math       69
+## 6 Alice math       60</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="data-processing.html#cb71-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(score))</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   name  type    score
+##   &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;
+## 1 Carol math       90
+## 2 Alice english    80
+## 3 Carol english    80
+## 4 Bob   english    70
+## 5 Bob   math       69
+## 6 Alice math       60</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-processing.html#cb73-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb73-2"><a href="data-processing.html#cb73-2" tabindex="-1"></a>  <span class="fu">arrange</span>(type, <span class="fu">desc</span>(score)) <span class="co"># 多变量依次排序</span></span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   name  type    score
+##   &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;
+## 1 Alice english    80
+## 2 Carol english    80
+## 3 Bob   english    70
+## 4 Carol math       90
+## 5 Bob   math       69
+## 6 Alice math       60</code></pre>
+</div>
+<div id="join" class="section level2 hasAnchor" number="8.7">
+<h2><span class="header-section-number">8.7</span> *_join<a href="data-processing.html#join" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="data-processing.html#cb75-1" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb75-2"><a href="data-processing.html#cb75-2" tabindex="-1"></a>  <span class="fu">group_by</span>(name) <span class="sc">%&gt;%</span> </span>
+<span id="cb75-3"><a href="data-processing.html#cb75-3" tabindex="-1"></a>  <span class="fu">summarise</span>( </span>
+<span id="cb75-4"><a href="data-processing.html#cb75-4" tabindex="-1"></a>    <span class="at">mean_score =</span> <span class="fu">mean</span>(score) </span>
+<span id="cb75-5"><a href="data-processing.html#cb75-5" tabindex="-1"></a>  )</span>
+<span id="cb75-6"><a href="data-processing.html#cb75-6" tabindex="-1"></a>df1</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 2
+##   name  mean_score
+##   &lt;chr&gt;      &lt;dbl&gt;
+## 1 Alice       70  
+## 2 Bob         69.5
+## 3 Carol       85</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="data-processing.html#cb77-1" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb77-2"><a href="data-processing.html#cb77-2" tabindex="-1"></a>      <span class="at">name =</span> <span class="fu">c</span>(<span class="st">&quot;Alice&quot;</span>, <span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Dave&quot;</span>),</span>
+<span id="cb77-3"><a href="data-processing.html#cb77-3" tabindex="-1"></a>      <span class="at">age =</span>  <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>)</span>
+<span id="cb77-4"><a href="data-processing.html#cb77-4" tabindex="-1"></a>)</span>
+<span id="cb77-5"><a href="data-processing.html#cb77-5" tabindex="-1"></a>df2</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 2
+##   name    age
+##   &lt;chr&gt; &lt;dbl&gt;
+## 1 Alice    12
+## 2 Bob      13
+## 3 Dave     14</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-processing.html#cb79-1" tabindex="-1"></a><span class="fu">left_join</span>(df1, df2, <span class="at">by =</span> <span class="st">&quot;name&quot;</span>) <span class="co"># 基于df1</span></span></code></pre></div>
+<pre><code>## # A tibble: 3 × 3
+##   name  mean_score   age
+##   &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
+## 1 Alice       70      12
+## 2 Bob         69.5    13
+## 3 Carol       85      NA</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-processing.html#cb81-1" tabindex="-1"></a><span class="co"># using %&gt;%</span></span>
+<span id="cb81-2"><a href="data-processing.html#cb81-2" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(df2, <span class="at">by =</span> <span class="st">&quot;name&quot;</span>) </span></code></pre></div>
+<pre><code>## # A tibble: 3 × 3
+##   name  mean_score   age
+##   &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
+## 1 Alice       70      12
+## 2 Bob         69.5    13
+## 3 Carol       85      NA</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-processing.html#cb83-1" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">right_join</span>(df2, <span class="at">by =</span> <span class="st">&quot;name&quot;</span>) <span class="co"># 基于df2</span></span></code></pre></div>
+<pre><code>## # A tibble: 3 × 3
+##   name  mean_score   age
+##   &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
+## 1 Alice       70      12
+## 2 Bob         69.5    13
+## 3 Dave        NA      14</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-processing.html#cb85-1" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">full_join</span>(df2, <span class="at">by =</span> <span class="st">&quot;name&quot;</span>) <span class="co"># df1 | df2 </span></span></code></pre></div>
+<pre><code>## # A tibble: 4 × 3
+##   name  mean_score   age
+##   &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
+## 1 Alice       70      12
+## 2 Bob         69.5    13
+## 3 Carol       85      NA
+## 4 Dave        NA      14</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data-processing.html#cb87-1" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">inner_join</span>(df2, <span class="at">by =</span> <span class="st">&quot;name&quot;</span>) <span class="co"># df1 &amp; df2</span></span></code></pre></div>
+<pre><code>## # A tibble: 2 × 3
+##   name  mean_score   age
+##   &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
+## 1 Alice       70      12
+## 2 Bob         69.5    13</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-processing.html#cb89-1" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">semi_join</span>(df2, <span class="at">by =</span> <span class="st">&quot;name&quot;</span>) <span class="co"># 仅保留一致 不合并</span></span></code></pre></div>
+<pre><code>## # A tibble: 2 × 2
+##   name  mean_score
+##   &lt;chr&gt;      &lt;dbl&gt;
+## 1 Alice       70  
+## 2 Bob         69.5</code></pre>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-processing.html#cb91-1" tabindex="-1"></a>df1 <span class="sc">%&gt;%</span> <span class="fu">anti_join</span>(df2, <span class="at">by =</span> <span class="st">&quot;name&quot;</span>) <span class="co"># 仅保留不一致 不合并</span></span></code></pre></div>
+<pre><code>## # A tibble: 1 × 2
+##   name  mean_score
+##   &lt;chr&gt;      &lt;dbl&gt;
+## 1 Carol         85</code></pre>
+</div>
+<div id="dplyr-test" class="section level2 hasAnchor" number="8.8">
+<h2><span class="header-section-number">8.8</span> dplyr-test<a href="data-processing.html#dplyr-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-processing.html#cb93-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb93-2"><a href="data-processing.html#cb93-2" tabindex="-1"></a>  <span class="fu">group_by</span>(name) <span class="sc">%&gt;%</span>  </span>
+<span id="cb93-3"><a href="data-processing.html#cb93-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">score_75puls_subject =</span> <span class="fu">sum</span>(score <span class="sc">&gt;</span> <span class="dv">75</span>)) </span></code></pre></div>
+<pre><code>## # A tibble: 3 × 2
+##   name  score_75puls_subject
+##   &lt;chr&gt;                &lt;int&gt;
+## 1 Alice                    1
+## 2 Bob                      0
+## 3 Carol                    2</code></pre>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-processing.html#cb95-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb95-2"><a href="data-processing.html#cb95-2" tabindex="-1"></a>  <span class="fu">group_by</span>(name) <span class="sc">%&gt;%</span></span>
+<span id="cb95-3"><a href="data-processing.html#cb95-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_score =</span> <span class="fu">mean</span>(score))</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 2
+##   name  mean_score
+##   &lt;chr&gt;      &lt;dbl&gt;
+## 1 Alice       70  
+## 2 Bob         69.5
+## 3 Carol       85</code></pre>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-processing.html#cb97-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb97-2"><a href="data-processing.html#cb97-2" tabindex="-1"></a>  <span class="fu">group_by</span>(name) <span class="sc">%&gt;%</span></span>
+<span id="cb97-3"><a href="data-processing.html#cb97-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean_score =</span> <span class="fu">mean</span>(score))</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
+## # Groups:   name [3]
+##   name  type    score mean_score
+##   &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;      &lt;dbl&gt;
+## 1 Alice english    80       70  
+## 2 Alice math       60       70  
+## 3 Bob   english    70       69.5
+## 4 Bob   math       69       69.5
+## 5 Carol english    80       85  
+## 6 Carol math       90       85</code></pre>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data-processing.html#cb99-1" tabindex="-1"></a>d <span class="ot">&lt;-</span></span>
+<span id="cb99-2"><a href="data-processing.html#cb99-2" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb99-3"><a href="data-processing.html#cb99-3" tabindex="-1"></a>    <span class="sc">~</span>name, <span class="sc">~</span>score,</span>
+<span id="cb99-4"><a href="data-processing.html#cb99-4" tabindex="-1"></a>    <span class="st">&quot;a1&quot;</span>, <span class="dv">2</span>,</span>
+<span id="cb99-5"><a href="data-processing.html#cb99-5" tabindex="-1"></a>    <span class="st">&quot;a2&quot;</span>, <span class="dv">5</span>,</span>
+<span id="cb99-6"><a href="data-processing.html#cb99-6" tabindex="-1"></a>    <span class="st">&quot;a3&quot;</span>, <span class="dv">3</span>,</span>
+<span id="cb99-7"><a href="data-processing.html#cb99-7" tabindex="-1"></a>    <span class="st">&quot;a4&quot;</span>, <span class="dv">7</span>,</span>
+<span id="cb99-8"><a href="data-processing.html#cb99-8" tabindex="-1"></a>    <span class="st">&quot;a5&quot;</span>, <span class="dv">6</span>,</span>
+<span id="cb99-9"><a href="data-processing.html#cb99-9" tabindex="-1"></a>    <span class="st">&quot;all&quot;</span>, <span class="dv">23</span></span>
+<span id="cb99-10"><a href="data-processing.html#cb99-10" tabindex="-1"></a>  )</span>
+<span id="cb99-11"><a href="data-processing.html#cb99-11" tabindex="-1"></a>d <span class="sc">%&gt;%</span> </span>
+<span id="cb99-12"><a href="data-processing.html#cb99-12" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;all&quot;</span>)),<span class="fu">desc</span>(score))</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+##   name  score
+##   &lt;chr&gt; &lt;dbl&gt;
+## 1 all      23
+## 2 a4        7
+## 3 a5        6
+## 4 a2        5
+## 5 a3        3
+## 6 a1        2</code></pre>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-processing.html#cb101-1" tabindex="-1"></a><span class="co"># all可以放到放到最后一行</span></span>
+<span id="cb101-2"><a href="data-processing.html#cb101-2" tabindex="-1"></a> <span class="co">#解释：name %in% c(&quot;all&quot;) 会产生布尔逻辑值 all   为TRUE(1),其他name变量都为0，默认升序排列故all会在最后一行，desc()则会排最后一行</span></span></code></pre></div>
+</div>
+<div id="applied_dplyr" class="section level2 hasAnchor" number="8.9">
+<h2><span class="header-section-number">8.9</span> applied_dplyr<a href="data-processing.html#applied_dplyr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-processing.html#cb102-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## Warning: 程辑包&#39;tidyverse&#39;是用R版本4.3.2 来建造的</code></pre>
+<pre><code>## Warning: 程辑包&#39;ggplot2&#39;是用R版本4.3.2 来建造的</code></pre>
+<pre><code>## Warning: 程辑包&#39;tidyr&#39;是用R版本4.3.2 来建造的</code></pre>
+<pre><code>## Warning: 程辑包&#39;readr&#39;是用R版本4.3.2 来建造的</code></pre>
+<pre><code>## Warning: 程辑包&#39;forcats&#39;是用R版本4.3.2 来建造的</code></pre>
+<pre><code>## Warning: 程辑包&#39;lubridate&#39;是用R版本4.3.2 来建造的</code></pre>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ forcats   1.0.0     ✔ readr     2.1.4
+## ✔ ggplot2   3.5.0     ✔ stringr   1.5.0
+## ✔ lubridate 1.9.3     ✔ tibble    3.2.1
+## ✔ purrr     1.0.2     ✔ tidyr     1.3.0
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="data-processing.html#cb110-1" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code></pre></div>
+<pre><code>## Warning: 程辑包&#39;palmerpenguins&#39;是用R版本4.3.2 来建造的</code></pre>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="data-processing.html#cb112-1" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> <span class="fu">drop_na</span>()</span>
+<span id="cb112-2"><a href="data-processing.html#cb112-2" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> <span class="fu">select</span>(bill_length_mm, bill_depth_mm)</span></code></pre></div>
+<pre><code>## # A tibble: 333 × 2
+##    bill_length_mm bill_depth_mm
+##             &lt;dbl&gt;         &lt;dbl&gt;
+##  1           39.1          18.7
+##  2           39.5          17.4
+##  3           40.3          18  
+##  4           36.7          19.3
+##  5           39.3          20.6
+##  6           38.9          17.8
+##  7           39.2          19.6
+##  8           41.1          17.6
+##  9           38.6          21.2
+## 10           34.6          21.1
+## # ℹ 323 more rows</code></pre>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="data-processing.html#cb114-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;bill_&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 333 × 2
+##    bill_length_mm bill_depth_mm
+##             &lt;dbl&gt;         &lt;dbl&gt;
+##  1           39.1          18.7
+##  2           39.5          17.4
+##  3           40.3          18  
+##  4           36.7          19.3
+##  5           39.3          20.6
+##  6           38.9          17.8
+##  7           39.2          19.6
+##  8           41.1          17.6
+##  9           38.6          21.2
+## 10           34.6          21.1
+## # ℹ 323 more rows</code></pre>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="data-processing.html#cb116-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">&quot;_mm&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 333 × 3
+##    bill_length_mm bill_depth_mm flipper_length_mm
+##             &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;
+##  1           39.1          18.7               181
+##  2           39.5          17.4               186
+##  3           40.3          18                 195
+##  4           36.7          19.3               193
+##  5           39.3          20.6               190
+##  6           38.9          17.8               181
+##  7           39.2          19.6               195
+##  8           41.1          17.6               182
+##  9           38.6          21.2               191
+## 10           34.6          21.1               198
+## # ℹ 323 more rows</code></pre>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="data-processing.html#cb118-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">&quot;length&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 333 × 2
+##    bill_length_mm flipper_length_mm
+##             &lt;dbl&gt;             &lt;int&gt;
+##  1           39.1               181
+##  2           39.5               186
+##  3           40.3               195
+##  4           36.7               193
+##  5           39.3               190
+##  6           38.9               181
+##  7           39.2               195
+##  8           41.1               182
+##  9           38.6               191
+## 10           34.6               198
+## # ℹ 323 more rows</code></pre>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="data-processing.html#cb120-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">where</span>(is.numeric))</span></code></pre></div>
+<pre><code>## # A tibble: 333 × 5
+##    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g  year
+##             &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt; &lt;int&gt;
+##  1           39.1          18.7               181        3750  2007
+##  2           39.5          17.4               186        3800  2007
+##  3           40.3          18                 195        3250  2007
+##  4           36.7          19.3               193        3450  2007
+##  5           39.3          20.6               190        3650  2007
+##  6           38.9          17.8               181        3625  2007
+##  7           39.2          19.6               195        4675  2007
+##  8           41.1          17.6               182        3200  2007
+##  9           38.6          21.2               191        3800  2007
+## 10           34.6          21.1               198        4400  2007
+## # ℹ 323 more rows</code></pre>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="data-processing.html#cb122-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">where</span>(is.character))</span></code></pre></div>
+<pre><code>## # A tibble: 333 × 0</code></pre>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="data-processing.html#cb124-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">!</span><span class="fu">where</span>(is.character))</span></code></pre></div>
+<pre><code>## # A tibble: 333 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750
+##  2 Adelie  Torgersen           39.5          17.4               186        3800
+##  3 Adelie  Torgersen           40.3          18                 195        3250
+##  4 Adelie  Torgersen           36.7          19.3               193        3450
+##  5 Adelie  Torgersen           39.3          20.6               190        3650
+##  6 Adelie  Torgersen           38.9          17.8               181        3625
+##  7 Adelie  Torgersen           39.2          19.6               195        4675
+##  8 Adelie  Torgersen           41.1          17.6               182        3200
+##  9 Adelie  Torgersen           38.6          21.2               191        3800
+## 10 Adelie  Torgersen           34.6          21.1               198        4400
+## # ℹ 323 more rows
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="data-processing.html#cb126-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> <span class="fu">select</span>(species, <span class="fu">starts_with</span>(<span class="st">&quot;bill_&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 333 × 3
+##    species bill_length_mm bill_depth_mm
+##    &lt;fct&gt;            &lt;dbl&gt;         &lt;dbl&gt;
+##  1 Adelie            39.1          18.7
+##  2 Adelie            39.5          17.4
+##  3 Adelie            40.3          18  
+##  4 Adelie            36.7          19.3
+##  5 Adelie            39.3          20.6
+##  6 Adelie            38.9          17.8
+##  7 Adelie            39.2          19.6
+##  8 Adelie            41.1          17.6
+##  9 Adelie            38.6          21.2
+## 10 Adelie            34.6          21.1
+## # ℹ 323 more rows</code></pre>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="data-processing.html#cb128-1" tabindex="-1"></a>penguins[[<span class="st">&quot;species&quot;</span>]]  </span></code></pre></div>
+<pre><code>##   [1] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##   [8] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [15] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [22] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [29] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [36] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [43] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [50] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [57] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [64] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [71] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [78] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [85] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [92] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [99] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+## [106] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+## [113] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+## [120] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+## [127] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+## [134] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+## [141] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Gentoo   
+## [148] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [155] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [162] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [169] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [176] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [183] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [190] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [197] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [204] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [211] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [218] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [225] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [232] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [239] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [246] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [253] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [260] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Chinstrap
+## [267] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [274] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [281] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [288] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [295] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [302] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [309] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [316] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [323] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [330] Chinstrap Chinstrap Chinstrap Chinstrap
+## Levels: Adelie Chinstrap Gentoo</code></pre>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="data-processing.html#cb130-1" tabindex="-1"></a>penguins<span class="sc">$</span>species </span></code></pre></div>
+<pre><code>##   [1] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##   [8] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [15] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [22] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [29] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [36] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [43] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [50] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [57] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [64] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [71] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [78] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [85] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [92] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [99] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+## [106] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+## [113] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+## [120] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+## [127] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+## [134] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+## [141] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Gentoo   
+## [148] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [155] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [162] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [169] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [176] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [183] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [190] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [197] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [204] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [211] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [218] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [225] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [232] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [239] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [246] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [253] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [260] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Chinstrap
+## [267] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [274] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [281] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [288] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [295] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [302] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [309] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [316] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [323] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [330] Chinstrap Chinstrap Chinstrap Chinstrap
+## Levels: Adelie Chinstrap Gentoo</code></pre>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="data-processing.html#cb132-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb132-2"><a href="data-processing.html#cb132-2" tabindex="-1"></a>  <span class="fu">pull</span>(species) <span class="co"># 返回向量</span></span></code></pre></div>
+<pre><code>##   [1] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##   [8] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [15] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [22] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [29] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [36] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [43] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [50] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [57] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [64] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [71] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [78] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [85] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [92] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+##  [99] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+## [106] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+## [113] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+## [120] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+## [127] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+## [134] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Adelie   
+## [141] Adelie    Adelie    Adelie    Adelie    Adelie    Adelie    Gentoo   
+## [148] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [155] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [162] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [169] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [176] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [183] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [190] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [197] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [204] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [211] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [218] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [225] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [232] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [239] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [246] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [253] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo   
+## [260] Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Gentoo    Chinstrap
+## [267] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [274] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [281] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [288] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [295] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [302] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [309] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [316] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [323] Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap Chinstrap
+## [330] Chinstrap Chinstrap Chinstrap Chinstrap
+## Levels: Adelie Chinstrap Gentoo</code></pre>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="data-processing.html#cb134-1" tabindex="-1"></a>penguins[<span class="st">&quot;species&quot;</span>]</span></code></pre></div>
+<pre><code>## # A tibble: 333 × 1
+##    species
+##    &lt;fct&gt;  
+##  1 Adelie 
+##  2 Adelie 
+##  3 Adelie 
+##  4 Adelie 
+##  5 Adelie 
+##  6 Adelie 
+##  7 Adelie 
+##  8 Adelie 
+##  9 Adelie 
+## 10 Adelie 
+## # ℹ 323 more rows</code></pre>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="data-processing.html#cb136-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb136-2"><a href="data-processing.html#cb136-2" tabindex="-1"></a>  <span class="fu">select</span>(species) <span class="co"># 返回数据框</span></span></code></pre></div>
+<pre><code>## # A tibble: 333 × 1
+##    species
+##    &lt;fct&gt;  
+##  1 Adelie 
+##  2 Adelie 
+##  3 Adelie 
+##  4 Adelie 
+##  5 Adelie 
+##  6 Adelie 
+##  7 Adelie 
+##  8 Adelie 
+##  9 Adelie 
+## 10 Adelie 
+## # ℹ 323 more rows</code></pre>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="data-processing.html#cb138-1" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb138-2"><a href="data-processing.html#cb138-2" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb138-3"><a href="data-processing.html#cb138-3" tabindex="-1"></a>  <span class="at">y =</span> <span class="dv">0</span>,</span>
+<span id="cb138-4"><a href="data-processing.html#cb138-4" tabindex="-1"></a>  <span class="at">z =</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">1</span>,</span>
+<span id="cb138-5"><a href="data-processing.html#cb138-5" tabindex="-1"></a>  <span class="at">w =</span> <span class="dv">0</span></span>
+<span id="cb138-6"><a href="data-processing.html#cb138-6" tabindex="-1"></a>)</span>
+<span id="cb138-7"><a href="data-processing.html#cb138-7" tabindex="-1"></a>tb</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 4
+##       x     y     z     w
+##   &lt;int&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;
+## 1     1     0     5     0
+## 2     2     0     4     0
+## 3     3     0     3     0
+## 4     4     0     2     0
+## 5     5     0     1     0</code></pre>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="data-processing.html#cb140-1" tabindex="-1"></a>myfun <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">sum</span>(x) <span class="sc">==</span> <span class="dv">0</span></span>
+<span id="cb140-2"><a href="data-processing.html#cb140-2" tabindex="-1"></a>tb <span class="sc">%&gt;%</span></span>
+<span id="cb140-3"><a href="data-processing.html#cb140-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(myfun))</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 2
+##       y     w
+##   &lt;dbl&gt; &lt;dbl&gt;
+## 1     0     0
+## 2     0     0
+## 3     0     0
+## 4     0     0
+## 5     0     0</code></pre>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="data-processing.html#cb142-1" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb142-2"><a href="data-processing.html#cb142-2" tabindex="-1"></a>tb <span class="sc">%&gt;%</span></span>
+<span id="cb142-3"><a href="data-processing.html#cb142-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(<span class="sc">~</span><span class="fu">sum</span>(.x) <span class="sc">==</span> <span class="dv">0</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 2
+##       y     w
+##   &lt;dbl&gt; &lt;dbl&gt;
+## 1     0     0
+## 2     0     0
+## 3     0     0
+## 4     0     0
+## 5     0     0</code></pre>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="data-processing.html#cb144-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb144-2"><a href="data-processing.html#cb144-2" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>),</span>
+<span id="cb144-3"><a href="data-processing.html#cb144-3" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>),</span>
+<span id="cb144-4"><a href="data-processing.html#cb144-4" tabindex="-1"></a>  <span class="at">z =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">5</span>, <span class="cn">NA</span>)</span>
+<span id="cb144-5"><a href="data-processing.html#cb144-5" tabindex="-1"></a>)</span>
+<span id="cb144-6"><a href="data-processing.html#cb144-6" tabindex="-1"></a>df <span class="sc">%&gt;%</span>  <span class="co"># 删除全为NA值的列</span></span>
+<span id="cb144-7"><a href="data-processing.html#cb144-7" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">!</span><span class="fu">where</span>(<span class="sc">~</span><span class="fu">all</span>(<span class="fu">is.na</span>(.x)))) <span class="co"># all检查所有逻辑值是否T</span></span></code></pre></div>
+<pre><code>## # A tibble: 3 × 2
+##       y     z
+##   &lt;dbl&gt; &lt;dbl&gt;
+## 1     2    NA
+## 2     3     5
+## 3    NA    NA</code></pre>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="data-processing.html#cb146-1" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb146-2"><a href="data-processing.html#cb146-2" tabindex="-1"></a>df <span class="sc">%&gt;%</span>  <span class="co"># 删除全为NA值的行</span></span>
+<span id="cb146-3"><a href="data-processing.html#cb146-3" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">if_any</span>(<span class="fu">everything</span>(), <span class="sc">~!</span><span class="fu">is.na</span>(.x)))</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 3
+##   x         y     z
+##   &lt;lgl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 NA        2    NA
+## 2 NA        3     5</code></pre>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="data-processing.html#cb148-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;male&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 168 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750
+##  2 Adelie  Torgersen           39.3          20.6               190        3650
+##  3 Adelie  Torgersen           39.2          19.6               195        4675
+##  4 Adelie  Torgersen           38.6          21.2               191        3800
+##  5 Adelie  Torgersen           34.6          21.1               198        4400
+##  6 Adelie  Torgersen           42.5          20.7               197        4500
+##  7 Adelie  Torgersen           46            21.5               194        4200
+##  8 Adelie  Biscoe              37.7          18.7               180        3600
+##  9 Adelie  Biscoe              38.2          18.1               185        3950
+## 10 Adelie  Biscoe              38.8          17.2               180        3800
+## # ℹ 158 more rows
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="data-processing.html#cb150-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> <span class="fu">filter</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Adelie&quot;</span>, <span class="st">&quot;Gentoo&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 265 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750
+##  2 Adelie  Torgersen           39.5          17.4               186        3800
+##  3 Adelie  Torgersen           40.3          18                 195        3250
+##  4 Adelie  Torgersen           36.7          19.3               193        3450
+##  5 Adelie  Torgersen           39.3          20.6               190        3650
+##  6 Adelie  Torgersen           38.9          17.8               181        3625
+##  7 Adelie  Torgersen           39.2          19.6               195        4675
+##  8 Adelie  Torgersen           41.1          17.6               182        3200
+##  9 Adelie  Torgersen           38.6          21.2               191        3800
+## 10 Adelie  Torgersen           34.6          21.1               198        4400
+## # ℹ 255 more rows
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="data-processing.html#cb152-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb152-2"><a href="data-processing.html#cb152-2" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Adelie&quot;</span> <span class="sc">&amp;</span> bill_length_mm <span class="sc">&gt;</span> <span class="dv">40</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 50 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen           40.3          18                 195        3250
+##  2 Adelie  Torgersen           41.1          17.6               182        3200
+##  3 Adelie  Torgersen           42.5          20.7               197        4500
+##  4 Adelie  Torgersen           46            21.5               194        4200
+##  5 Adelie  Biscoe              40.6          18.6               183        3550
+##  6 Adelie  Biscoe              40.5          17.9               187        3200
+##  7 Adelie  Biscoe              40.5          18.9               180        3950
+##  8 Adelie  Dream               40.9          18.9               184        3900
+##  9 Adelie  Dream               42.2          18.5               180        3550
+## 10 Adelie  Dream               40.8          18.4               195        3900
+## # ℹ 40 more rows
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="data-processing.html#cb154-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb154-2"><a href="data-processing.html#cb154-2" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Adelie&quot;</span>, bill_length_mm <span class="sc">&gt;</span> <span class="dv">40</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 50 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen           40.3          18                 195        3250
+##  2 Adelie  Torgersen           41.1          17.6               182        3200
+##  3 Adelie  Torgersen           42.5          20.7               197        4500
+##  4 Adelie  Torgersen           46            21.5               194        4200
+##  5 Adelie  Biscoe              40.6          18.6               183        3550
+##  6 Adelie  Biscoe              40.5          17.9               187        3200
+##  7 Adelie  Biscoe              40.5          18.9               180        3950
+##  8 Adelie  Dream               40.9          18.9               184        3900
+##  9 Adelie  Dream               42.2          18.5               180        3550
+## 10 Adelie  Dream               40.8          18.4               195        3900
+## # ℹ 40 more rows
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="data-processing.html#cb156-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb156-2"><a href="data-processing.html#cb156-2" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Gentoo&quot;</span>, bill_length_mm <span class="sc">==</span> <span class="fu">max</span>(bill_length_mm) )</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 8
+##   species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+## 1 Gentoo  Biscoe           59.6            17               230        6050
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="data-processing.html#cb158-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span>  <span class="co">#查看数据</span></span>
+<span id="cb158-2"><a href="data-processing.html#cb158-2" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 8
+##   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+## 1 Adelie  Torgersen           39.1          18.7               181        3750
+## 2 Adelie  Torgersen           39.5          17.4               186        3800
+## 3 Adelie  Torgersen           40.3          18                 195        3250
+## 4 Adelie  Torgersen           36.7          19.3               193        3450
+## 5 Adelie  Torgersen           39.3          20.6               190        3650
+## 6 Adelie  Torgersen           38.9          17.8               181        3625
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="data-processing.html#cb160-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb160-2"><a href="data-processing.html#cb160-2" tabindex="-1"></a>  <span class="fu">tail</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 8
+##   species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##   &lt;fct&gt;     &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+## 1 Chinstrap Dream            45.7          17                 195        3650
+## 2 Chinstrap Dream            55.8          19.8               207        4000
+## 3 Chinstrap Dream            43.5          18.1               202        3400
+## 4 Chinstrap Dream            49.6          18.2               193        3775
+## 5 Chinstrap Dream            50.8          19                 210        4100
+## 6 Chinstrap Dream            50.2          18.7               198        3775
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="data-processing.html#cb162-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb162-2"><a href="data-processing.html#cb162-2" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 8
+##   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+## 1 Adelie  Torgersen           39.1          18.7               181        3750
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="data-processing.html#cb164-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb164-2"><a href="data-processing.html#cb164-2" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span> </span>
+<span id="cb164-3"><a href="data-processing.html#cb164-3" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 8
+## # Groups:   species [3]
+##   species   island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##   &lt;fct&gt;     &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+## 1 Adelie    Torgersen           39.1          18.7               181        3750
+## 2 Chinstrap Dream               46.5          17.9               192        3500
+## 3 Gentoo    Biscoe              46.1          13.2               211        4500
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="data-processing.html#cb166-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span>  <span class="co"># 选最大值</span></span>
+<span id="cb166-2"><a href="data-processing.html#cb166-2" tabindex="-1"></a>  <span class="fu">filter</span>(bill_length_mm <span class="sc">==</span> <span class="fu">max</span>(bill_length_mm))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 8
+##   species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+## 1 Gentoo  Biscoe           59.6            17               230        6050
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="data-processing.html#cb168-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb168-2"><a href="data-processing.html#cb168-2" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(bill_length_mm)) <span class="sc">%&gt;%</span> </span>
+<span id="cb168-3"><a href="data-processing.html#cb168-3" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 8
+##   species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+## 1 Gentoo  Biscoe           59.6            17               230        6050
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="data-processing.html#cb170-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb170-2"><a href="data-processing.html#cb170-2" tabindex="-1"></a>  <span class="fu">slice_max</span>(bill_length_mm)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 8
+##   species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+## 1 Gentoo  Biscoe           59.6            17               230        6050
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="data-processing.html#cb172-1" tabindex="-1"></a>tb <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>( <span class="co"># 特征分列</span></span>
+<span id="cb172-2"><a href="data-processing.html#cb172-2" tabindex="-1"></a>  <span class="sc">~</span>day, <span class="sc">~</span>price,</span>
+<span id="cb172-3"><a href="data-processing.html#cb172-3" tabindex="-1"></a>  <span class="dv">1</span>,   <span class="st">&quot;30-45&quot;</span>,</span>
+<span id="cb172-4"><a href="data-processing.html#cb172-4" tabindex="-1"></a>  <span class="dv">2</span>,   <span class="st">&quot;40-95&quot;</span>,</span>
+<span id="cb172-5"><a href="data-processing.html#cb172-5" tabindex="-1"></a>  <span class="dv">3</span>,   <span class="st">&quot;89-65&quot;</span>,</span>
+<span id="cb172-6"><a href="data-processing.html#cb172-6" tabindex="-1"></a>  <span class="dv">4</span>,   <span class="st">&quot;45-63&quot;</span>,</span>
+<span id="cb172-7"><a href="data-processing.html#cb172-7" tabindex="-1"></a>  <span class="dv">5</span>,   <span class="st">&quot;52-42&quot;</span></span>
+<span id="cb172-8"><a href="data-processing.html#cb172-8" tabindex="-1"></a>)</span>
+<span id="cb172-9"><a href="data-processing.html#cb172-9" tabindex="-1"></a>tb1 <span class="ot">&lt;-</span> tb <span class="sc">%&gt;%</span> </span>
+<span id="cb172-10"><a href="data-processing.html#cb172-10" tabindex="-1"></a>  <span class="fu">separate</span>(price, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;high&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>)</span>
+<span id="cb172-11"><a href="data-processing.html#cb172-11" tabindex="-1"></a>tb1</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 3
+##     day low   high 
+##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
+## 1     1 30    45   
+## 2     2 40    95   
+## 3     3 89    65   
+## 4     4 45    63   
+## 5     5 52    42</code></pre>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="data-processing.html#cb174-1" tabindex="-1"></a>tb1 <span class="sc">%&gt;%</span> </span>
+<span id="cb174-2"><a href="data-processing.html#cb174-2" tabindex="-1"></a>  <span class="fu">unite</span>(<span class="at">col =</span> <span class="st">&quot;price&quot;</span>, <span class="fu">c</span>(low, high), <span class="at">sep =</span> <span class="st">&quot;:&quot;</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>) <span class="co"># remove = FALSE 不去除原有列 默认 remove = T</span></span></code></pre></div>
+<pre><code>## # A tibble: 5 × 4
+##     day price low   high 
+##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+## 1     1 30:45 30    45   
+## 2     2 40:95 40    95   
+## 3     3 89:65 89    65   
+## 4     4 45:63 45    63   
+## 5     5 52:42 52    42</code></pre>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="data-processing.html#cb176-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb176-2"><a href="data-processing.html#cb176-2" tabindex="-1"></a>  <span class="sc">~</span>x, <span class="sc">~</span>y, <span class="sc">~</span>z,</span>
+<span id="cb176-3"><a href="data-processing.html#cb176-3" tabindex="-1"></a>  <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>,</span>
+<span id="cb176-4"><a href="data-processing.html#cb176-4" tabindex="-1"></a>  <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>,</span>
+<span id="cb176-5"><a href="data-processing.html#cb176-5" tabindex="-1"></a>  <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>,</span>
+<span id="cb176-6"><a href="data-processing.html#cb176-6" tabindex="-1"></a>  <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>,</span>
+<span id="cb176-7"><a href="data-processing.html#cb176-7" tabindex="-1"></a>  <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>,</span>
+<span id="cb176-8"><a href="data-processing.html#cb176-8" tabindex="-1"></a>  <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">1</span></span>
+<span id="cb176-9"><a href="data-processing.html#cb176-9" tabindex="-1"></a>)</span>
+<span id="cb176-10"><a href="data-processing.html#cb176-10" tabindex="-1"></a>df</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##       x     y     z
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     1     1
+## 2     1     1     2
+## 3     1     1     1
+## 4     2     1     2
+## 5     2     2     3
+## 6     3     3     1</code></pre>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="data-processing.html#cb178-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb178-2"><a href="data-processing.html#cb178-2" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="co"># 行去重</span></span></code></pre></div>
+<pre><code>## # A tibble: 5 × 3
+##       x     y     z
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     1     1
+## 2     1     1     2
+## 3     2     1     2
+## 4     2     2     3
+## 5     3     3     1</code></pre>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="data-processing.html#cb180-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb180-2"><a href="data-processing.html#cb180-2" tabindex="-1"></a>  <span class="fu">distinct</span>(x)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 1
+##       x
+##   &lt;dbl&gt;
+## 1     1
+## 2     2
+## 3     3</code></pre>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="data-processing.html#cb182-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb182-2"><a href="data-processing.html#cb182-2" tabindex="-1"></a>  <span class="fu">distinct</span>(x, y)</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 2
+##       x     y
+##   &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     1
+## 2     2     1
+## 3     2     2
+## 4     3     3</code></pre>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="data-processing.html#cb184-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb184-2"><a href="data-processing.html#cb184-2" tabindex="-1"></a>  <span class="fu">distinct</span>(x, y, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="co"># 只保留最先出现的row</span></span></code></pre></div>
+<pre><code>## # A tibble: 4 × 3
+##       x     y     z
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     1     1
+## 2     2     1     2
+## 3     2     2     3
+## 4     3     3     1</code></pre>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="data-processing.html#cb186-1" tabindex="-1"></a><span class="co"># .keep_all 保留所有列</span></span>
+<span id="cb186-2"><a href="data-processing.html#cb186-2" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb186-3"><a href="data-processing.html#cb186-3" tabindex="-1"></a>  <span class="fu">distinct</span>(<span class="fu">across</span>(<span class="fu">c</span>(x, y)),<span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 3
+##       x     y     z
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     1     1
+## 2     2     1     2
+## 3     2     2     3
+## 4     3     3     1</code></pre>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="data-processing.html#cb188-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb188-2"><a href="data-processing.html#cb188-2" tabindex="-1"></a>  <span class="fu">group_by</span>(x) <span class="sc">%&gt;%</span></span>
+<span id="cb188-3"><a href="data-processing.html#cb188-3" tabindex="-1"></a>  <span class="fu">distinct</span>(y, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="co"># 在x每个组中，去重Y列</span></span></code></pre></div>
+<pre><code>## # A tibble: 4 × 3
+## # Groups:   x [3]
+##       x     y     z
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     1     1
+## 2     2     1     2
+## 3     2     2     3
+## 4     3     3     1</code></pre>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="data-processing.html#cb190-1" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>) <span class="sc">%&gt;%</span> <span class="fu">n_distinct</span>() </span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="data-processing.html#cb192-1" tabindex="-1"></a><span class="co"># vector 统计元素个数</span></span>
+<span id="cb192-2"><a href="data-processing.html#cb192-2" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb192-3"><a href="data-processing.html#cb192-3" tabindex="-1"></a>  <span class="fu">group_by</span>(x) <span class="sc">%&gt;%</span></span>
+<span id="cb192-4"><a href="data-processing.html#cb192-4" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n_distinct</span>(z))</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 2
+##       x     n
+##   &lt;dbl&gt; &lt;int&gt;
+## 1     1     2
+## 2     2     2
+## 3     3     1</code></pre>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="data-processing.html#cb194-1" tabindex="-1"></a><span class="co"># NA的计算</span></span>
+<span id="cb194-2"><a href="data-processing.html#cb194-2" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="data-processing.html#cb196-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 2.333333</code></pre>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="data-processing.html#cb198-1" tabindex="-1"></a><span class="co">#if_else + mutate 二分类条件</span></span>
+<span id="cb198-2"><a href="data-processing.html#cb198-2" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb198-3"><a href="data-processing.html#cb198-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb198-4"><a href="data-processing.html#cb198-4" tabindex="-1"></a>    <span class="at">body =</span> <span class="fu">if_else</span>(body_mass_g <span class="sc">&gt;</span> <span class="dv">4200</span>, <span class="st">&quot;you are fat&quot;</span>, <span class="st">&quot;you are fine&quot;</span>)</span>
+<span id="cb198-5"><a href="data-processing.html#cb198-5" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## # A tibble: 333 × 9
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750
+##  2 Adelie  Torgersen           39.5          17.4               186        3800
+##  3 Adelie  Torgersen           40.3          18                 195        3250
+##  4 Adelie  Torgersen           36.7          19.3               193        3450
+##  5 Adelie  Torgersen           39.3          20.6               190        3650
+##  6 Adelie  Torgersen           38.9          17.8               181        3625
+##  7 Adelie  Torgersen           39.2          19.6               195        4675
+##  8 Adelie  Torgersen           41.1          17.6               182        3200
+##  9 Adelie  Torgersen           38.6          21.2               191        3800
+## 10 Adelie  Torgersen           34.6          21.1               198        4400
+## # ℹ 323 more rows
+## # ℹ 3 more variables: sex &lt;fct&gt;, year &lt;int&gt;, body &lt;chr&gt;</code></pre>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="data-processing.html#cb200-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb200-2"><a href="data-processing.html#cb200-2" tabindex="-1"></a>    <span class="sc">~</span>name,     <span class="sc">~</span>type, <span class="sc">~</span>score,</span>
+<span id="cb200-3"><a href="data-processing.html#cb200-3" tabindex="-1"></a>  <span class="st">&quot;Alice&quot;</span>, <span class="st">&quot;english&quot;</span>,    <span class="dv">80</span>,</span>
+<span id="cb200-4"><a href="data-processing.html#cb200-4" tabindex="-1"></a>  <span class="st">&quot;Alice&quot;</span>,    <span class="st">&quot;math&quot;</span>,    <span class="cn">NA</span>,</span>
+<span id="cb200-5"><a href="data-processing.html#cb200-5" tabindex="-1"></a>    <span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;english&quot;</span>,    <span class="dv">70</span>,</span>
+<span id="cb200-6"><a href="data-processing.html#cb200-6" tabindex="-1"></a>    <span class="st">&quot;Bob&quot;</span>,    <span class="st">&quot;math&quot;</span>,    <span class="dv">69</span>,</span>
+<span id="cb200-7"><a href="data-processing.html#cb200-7" tabindex="-1"></a>  <span class="st">&quot;Carol&quot;</span>, <span class="st">&quot;english&quot;</span>,    <span class="cn">NA</span>,</span>
+<span id="cb200-8"><a href="data-processing.html#cb200-8" tabindex="-1"></a>  <span class="st">&quot;Carol&quot;</span>,    <span class="st">&quot;math&quot;</span>,    <span class="dv">90</span></span>
+<span id="cb200-9"><a href="data-processing.html#cb200-9" tabindex="-1"></a>  )</span>
+<span id="cb200-10"><a href="data-processing.html#cb200-10" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb200-11"><a href="data-processing.html#cb200-11" tabindex="-1"></a>  <span class="fu">group_by</span>(type) <span class="sc">%&gt;%</span> </span>
+<span id="cb200-12"><a href="data-processing.html#cb200-12" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">score =</span> <span class="fu">if_else</span>(<span class="fu">is.na</span>(score),<span class="fu">mean</span>(score,<span class="at">na.rm =</span> T),score))</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+## # Groups:   type [2]
+##   name  type    score
+##   &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;
+## 1 Alice english  80  
+## 2 Alice math     79.5
+## 3 Bob   english  70  
+## 4 Bob   math     69  
+## 5 Carol english  75  
+## 6 Carol math     90</code></pre>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="data-processing.html#cb202-1" tabindex="-1"></a><span class="co"># case_when + mutate 多分类条件</span></span>
+<span id="cb202-2"><a href="data-processing.html#cb202-2" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb202-3"><a href="data-processing.html#cb202-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb202-4"><a href="data-processing.html#cb202-4" tabindex="-1"></a>   <span class="at">body =</span> <span class="fu">case_when</span>(</span>
+<span id="cb202-5"><a href="data-processing.html#cb202-5" tabindex="-1"></a>     body_mass_g <span class="sc">&lt;</span> <span class="dv">3500</span>                       <span class="sc">~</span> <span class="st">&quot;best&quot;</span>,</span>
+<span id="cb202-6"><a href="data-processing.html#cb202-6" tabindex="-1"></a>     body_mass_g <span class="sc">&gt;=</span> <span class="dv">3500</span> <span class="sc">&amp;</span> body_mass_g <span class="sc">&lt;</span> <span class="dv">4500</span> <span class="sc">~</span> <span class="st">&quot;good&quot;</span>,</span>
+<span id="cb202-7"><a href="data-processing.html#cb202-7" tabindex="-1"></a>     body_mass_g <span class="sc">&gt;=</span> <span class="dv">4500</span> <span class="sc">&amp;</span> body_mass_g <span class="sc">&lt;</span> <span class="dv">5500</span> <span class="sc">~</span> <span class="st">&quot;general&quot;</span>,</span>
+<span id="cb202-8"><a href="data-processing.html#cb202-8" tabindex="-1"></a>     <span class="cn">TRUE</span>                                     <span class="sc">~</span> <span class="st">&quot;other&quot;</span></span>
+<span id="cb202-9"><a href="data-processing.html#cb202-9" tabindex="-1"></a>  )</span>
+<span id="cb202-10"><a href="data-processing.html#cb202-10" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## # A tibble: 333 × 9
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750
+##  2 Adelie  Torgersen           39.5          17.4               186        3800
+##  3 Adelie  Torgersen           40.3          18                 195        3250
+##  4 Adelie  Torgersen           36.7          19.3               193        3450
+##  5 Adelie  Torgersen           39.3          20.6               190        3650
+##  6 Adelie  Torgersen           38.9          17.8               181        3625
+##  7 Adelie  Torgersen           39.2          19.6               195        4675
+##  8 Adelie  Torgersen           41.1          17.6               182        3200
+##  9 Adelie  Torgersen           38.6          21.2               191        3800
+## 10 Adelie  Torgersen           34.6          21.1               198        4400
+## # ℹ 323 more rows
+## # ℹ 3 more variables: sex &lt;fct&gt;, year &lt;int&gt;, body &lt;chr&gt;</code></pre>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="data-processing.html#cb204-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb204-2"><a href="data-processing.html#cb204-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb204-3"><a href="data-processing.html#cb204-3" tabindex="-1"></a>    <span class="at">degree =</span> <span class="fu">case_when</span>(</span>
+<span id="cb204-4"><a href="data-processing.html#cb204-4" tabindex="-1"></a>      bill_length_mm <span class="sc">&lt;</span> <span class="dv">35</span>                        <span class="sc">~</span> <span class="st">&quot;A&quot;</span>,</span>
+<span id="cb204-5"><a href="data-processing.html#cb204-5" tabindex="-1"></a>      bill_length_mm <span class="sc">&gt;=</span> <span class="dv">35</span> <span class="sc">&amp;</span> bill_length_mm <span class="sc">&lt;</span> <span class="dv">45</span> <span class="sc">~</span> <span class="st">&quot;B&quot;</span>,</span>
+<span id="cb204-6"><a href="data-processing.html#cb204-6" tabindex="-1"></a>      bill_length_mm <span class="sc">&gt;=</span> <span class="dv">45</span> <span class="sc">&amp;</span> bill_length_mm <span class="sc">&lt;</span> <span class="dv">55</span> <span class="sc">~</span> <span class="st">&quot;C&quot;</span>,</span>
+<span id="cb204-7"><a href="data-processing.html#cb204-7" tabindex="-1"></a>      <span class="cn">TRUE</span>                                       <span class="sc">~</span> <span class="st">&quot;D&quot;</span></span>
+<span id="cb204-8"><a href="data-processing.html#cb204-8" tabindex="-1"></a>  )</span>
+<span id="cb204-9"><a href="data-processing.html#cb204-9" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## # A tibble: 333 × 9
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750
+##  2 Adelie  Torgersen           39.5          17.4               186        3800
+##  3 Adelie  Torgersen           40.3          18                 195        3250
+##  4 Adelie  Torgersen           36.7          19.3               193        3450
+##  5 Adelie  Torgersen           39.3          20.6               190        3650
+##  6 Adelie  Torgersen           38.9          17.8               181        3625
+##  7 Adelie  Torgersen           39.2          19.6               195        4675
+##  8 Adelie  Torgersen           41.1          17.6               182        3200
+##  9 Adelie  Torgersen           38.6          21.2               191        3800
+## 10 Adelie  Torgersen           34.6          21.1               198        4400
+## # ℹ 323 more rows
+## # ℹ 3 more variables: sex &lt;fct&gt;, year &lt;int&gt;, degree &lt;chr&gt;</code></pre>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="data-processing.html#cb206-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb206-2"><a href="data-processing.html#cb206-2" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb206-3"><a href="data-processing.html#cb206-3" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>() </span>
+<span id="cb206-4"><a href="data-processing.html#cb206-4" tabindex="-1"></a>  ) </span></code></pre></div>
+<pre><code>## # A tibble: 1 × 1
+##       n
+##   &lt;int&gt;
+## 1   333</code></pre>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="data-processing.html#cb208-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb208-2"><a href="data-processing.html#cb208-2" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span></span>
+<span id="cb208-3"><a href="data-processing.html#cb208-3" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb208-4"><a href="data-processing.html#cb208-4" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()          <span class="co"># n() 统计当前分组每个元素数据框行数</span></span>
+<span id="cb208-5"><a href="data-processing.html#cb208-5" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 2
+##   species       n
+##   &lt;fct&gt;     &lt;int&gt;
+## 1 Adelie      146
+## 2 Chinstrap    68
+## 3 Gentoo      119</code></pre>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="data-processing.html#cb210-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> <span class="fu">count</span>(species) <span class="co"># 统计某列各元素出现次数</span></span></code></pre></div>
+<pre><code>## # A tibble: 3 × 2
+##   species       n
+##   &lt;fct&gt;     &lt;int&gt;
+## 1 Adelie      146
+## 2 Chinstrap    68
+## 3 Gentoo      119</code></pre>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="data-processing.html#cb212-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> <span class="fu">count</span>(sex, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="co"># 不同性别</span></span></code></pre></div>
+<pre><code>## # A tibble: 2 × 2
+##   sex        n
+##   &lt;fct&gt;  &lt;int&gt;
+## 1 male     168
+## 2 female   165</code></pre>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="data-processing.html#cb214-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> <span class="fu">count</span>(island, species) <span class="co"># 不同组和统计</span></span></code></pre></div>
+<pre><code>## # A tibble: 5 × 3
+##   island    species       n
+##   &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;
+## 1 Biscoe    Adelie       44
+## 2 Biscoe    Gentoo      119
+## 3 Dream     Adelie       55
+## 4 Dream     Chinstrap    68
+## 5 Torgersen Adelie       47</code></pre>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="data-processing.html#cb216-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb216-2"><a href="data-processing.html#cb216-2" tabindex="-1"></a>  <span class="fu">filter</span>(bill_length_mm <span class="sc">&gt;</span> <span class="dv">40</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb216-3"><a href="data-processing.html#cb216-3" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb216-4"><a href="data-processing.html#cb216-4" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb216-5"><a href="data-processing.html#cb216-5" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 1
+##       n
+##   &lt;int&gt;
+## 1   237</code></pre>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="data-processing.html#cb218-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> <span class="fu">count</span>(bill_length_mm <span class="sc">&gt;</span> <span class="dv">40</span>,<span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="co"># 相当于统计 T F 个数</span></span></code></pre></div>
+<pre><code>## # A tibble: 2 × 2
+##   `bill_length_mm &gt; 40`     n
+##   &lt;lgl&gt;                 &lt;int&gt;
+## 1 TRUE                    237
+## 2 FALSE                    96</code></pre>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="data-processing.html#cb220-1" tabindex="-1"></a><span class="co"># 统计某列满足条件的行占比</span></span>
+<span id="cb220-2"><a href="data-processing.html#cb220-2" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb220-3"><a href="data-processing.html#cb220-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">is_bigger40 =</span> bill_length_mm <span class="sc">&gt;</span> <span class="dv">40</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb220-4"><a href="data-processing.html#cb220-4" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">percentage_bigger40 =</span> <span class="fu">sum</span>(is_bigger40)<span class="sc">/</span><span class="fu">n</span>() <span class="sc">*</span> <span class="dv">100</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 1
+##   percentage_bigger40
+##                 &lt;dbl&gt;
+## 1                71.2</code></pre>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="data-processing.html#cb222-1" tabindex="-1"></a><span class="co"># summarise(percentage_bigger40 = mean(is_bigger40) * 100)</span></span>
+<span id="cb222-2"><a href="data-processing.html#cb222-2" tabindex="-1"></a>  </span>
+<span id="cb222-3"><a href="data-processing.html#cb222-3" tabindex="-1"></a><span class="co"># across + summarize</span></span>
+<span id="cb222-4"><a href="data-processing.html#cb222-4" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb222-5"><a href="data-processing.html#cb222-5" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb222-6"><a href="data-processing.html#cb222-6" tabindex="-1"></a>    <span class="at">length =</span> <span class="fu">mean</span>(bill_length_mm)</span>
+<span id="cb222-7"><a href="data-processing.html#cb222-7" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 1
+##   length
+##    &lt;dbl&gt;
+## 1   44.0</code></pre>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="data-processing.html#cb224-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb224-2"><a href="data-processing.html#cb224-2" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb224-3"><a href="data-processing.html#cb224-3" tabindex="-1"></a>    <span class="at">length =</span> <span class="fu">mean</span>(bill_length_mm),</span>
+<span id="cb224-4"><a href="data-processing.html#cb224-4" tabindex="-1"></a>    <span class="at">depth  =</span> <span class="fu">mean</span>(bill_depth_mm)</span>
+<span id="cb224-5"><a href="data-processing.html#cb224-5" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 2
+##   length depth
+##    &lt;dbl&gt; &lt;dbl&gt;
+## 1   44.0  17.2</code></pre>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="data-processing.html#cb226-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb226-2"><a href="data-processing.html#cb226-2" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb226-3"><a href="data-processing.html#cb226-3" tabindex="-1"></a>     <span class="fu">across</span>(<span class="fu">c</span>(bill_depth_mm, bill_length_mm), mean)</span>
+<span id="cb226-4"><a href="data-processing.html#cb226-4" tabindex="-1"></a> )</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 2
+##   bill_depth_mm bill_length_mm
+##           &lt;dbl&gt;          &lt;dbl&gt;
+## 1          17.2           44.0</code></pre>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="data-processing.html#cb228-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb228-2"><a href="data-processing.html#cb228-2" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb228-3"><a href="data-processing.html#cb228-3" tabindex="-1"></a>     <span class="fu">across</span>(<span class="fu">c</span>(bill_depth_mm, bill_length_mm, flipper_length_mm), mean)</span>
+<span id="cb228-4"><a href="data-processing.html#cb228-4" tabindex="-1"></a> )</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 3
+##   bill_depth_mm bill_length_mm flipper_length_mm
+##           &lt;dbl&gt;          &lt;dbl&gt;             &lt;dbl&gt;
+## 1          17.2           44.0              201.</code></pre>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="data-processing.html#cb230-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb230-2"><a href="data-processing.html#cb230-2" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb230-3"><a href="data-processing.html#cb230-3" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">ends_with</span>(<span class="st">&quot;_mm&quot;</span>), mean)</span>
+<span id="cb230-4"><a href="data-processing.html#cb230-4" tabindex="-1"></a> )</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 3
+##   bill_length_mm bill_depth_mm flipper_length_mm
+##            &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;
+## 1           44.0          17.2              201.</code></pre>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="data-processing.html#cb232-1" tabindex="-1"></a><span class="co"># 数据中心化 mutate + across</span></span>
+<span id="cb232-2"><a href="data-processing.html#cb232-2" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb232-3"><a href="data-processing.html#cb232-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb232-4"><a href="data-processing.html#cb232-4" tabindex="-1"></a>    <span class="at">bill_length_mm =</span> bill_length_mm <span class="sc">-</span> <span class="fu">mean</span>(bill_length_mm),</span>
+<span id="cb232-5"><a href="data-processing.html#cb232-5" tabindex="-1"></a>    <span class="at">bill_depth_mm  =</span> bill_depth_mm  <span class="sc">-</span> <span class="fu">mean</span>(bill_depth_mm)</span>
+<span id="cb232-6"><a href="data-processing.html#cb232-6" tabindex="-1"></a>    )</span></code></pre></div>
+<pre><code>## # A tibble: 333 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen          -4.89         1.54                181        3750
+##  2 Adelie  Torgersen          -4.49         0.235               186        3800
+##  3 Adelie  Torgersen          -3.69         0.835               195        3250
+##  4 Adelie  Torgersen          -7.29         2.14                193        3450
+##  5 Adelie  Torgersen          -4.69         3.44                190        3650
+##  6 Adelie  Torgersen          -5.09         0.635               181        3625
+##  7 Adelie  Torgersen          -4.79         2.44                195        4675
+##  8 Adelie  Torgersen          -2.89         0.435               182        3200
+##  9 Adelie  Torgersen          -5.39         4.04                191        3800
+## 10 Adelie  Torgersen          -9.39         3.94                198        4400
+## # ℹ 323 more rows
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="data-processing.html#cb234-1" tabindex="-1"></a>centralized <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {x <span class="sc">-</span> <span class="fu">mean</span>(x)}</span>
+<span id="cb234-2"><a href="data-processing.html#cb234-2" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb234-3"><a href="data-processing.html#cb234-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(bill_length_mm, bill_depth_mm), centralized))</span></code></pre></div>
+<pre><code>## # A tibble: 333 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen          -4.89         1.54                181        3750
+##  2 Adelie  Torgersen          -4.49         0.235               186        3800
+##  3 Adelie  Torgersen          -3.69         0.835               195        3250
+##  4 Adelie  Torgersen          -7.29         2.14                193        3450
+##  5 Adelie  Torgersen          -4.69         3.44                190        3650
+##  6 Adelie  Torgersen          -5.09         0.635               181        3625
+##  7 Adelie  Torgersen          -4.79         2.44                195        4675
+##  8 Adelie  Torgersen          -2.89         0.435               182        3200
+##  9 Adelie  Torgersen          -5.39         4.04                191        3800
+## 10 Adelie  Torgersen          -9.39         3.94                198        4400
+## # ℹ 323 more rows
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="data-processing.html#cb236-1" tabindex="-1"></a><span class="co"># 数据标准化 mutate + across</span></span>
+<span id="cb236-2"><a href="data-processing.html#cb236-2" tabindex="-1"></a>std <span class="ot">&lt;-</span> <span class="cf">function</span>(x) </span>
+<span id="cb236-3"><a href="data-processing.html#cb236-3" tabindex="-1"></a>{</span>
+<span id="cb236-4"><a href="data-processing.html#cb236-4" tabindex="-1"></a>  (x <span class="sc">-</span> <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">/</span> <span class="fu">sd</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb236-5"><a href="data-processing.html#cb236-5" tabindex="-1"></a>}</span>
+<span id="cb236-6"><a href="data-processing.html#cb236-6" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb236-7"><a href="data-processing.html#cb236-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(bill_length_mm, bill_depth_mm), std))</span></code></pre></div>
+<pre><code>## # A tibble: 333 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen         -0.895         0.780               181        3750
+##  2 Adelie  Torgersen         -0.822         0.119               186        3800
+##  3 Adelie  Torgersen         -0.675         0.424               195        3250
+##  4 Adelie  Torgersen         -1.33          1.08                193        3450
+##  5 Adelie  Torgersen         -0.858         1.74                190        3650
+##  6 Adelie  Torgersen         -0.931         0.323               181        3625
+##  7 Adelie  Torgersen         -0.876         1.24                195        4675
+##  8 Adelie  Torgersen         -0.529         0.221               182        3200
+##  9 Adelie  Torgersen         -0.986         2.05                191        3800
+## 10 Adelie  Torgersen         -1.72          2.00                198        4400
+## # ℹ 323 more rows
+## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="data-processing.html#cb238-1" tabindex="-1"></a><span class="co"># using across() and purrr style</span></span>
+<span id="cb238-2"><a href="data-processing.html#cb238-2" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb238-3"><a href="data-processing.html#cb238-3" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb238-4"><a href="data-processing.html#cb238-4" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">&quot;bill_&quot;</span>), <span class="sc">~</span> (.x <span class="sc">-</span> <span class="fu">mean</span>(.x)) <span class="sc">/</span> <span class="fu">sd</span>(.x))</span>
+<span id="cb238-5"><a href="data-processing.html#cb238-5" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## Warning: Returning more (or less) than 1 row per `summarise()` group was deprecated in
+## dplyr 1.1.0.
+## ℹ Please use `reframe()` instead.
+## ℹ When switching from `summarise()` to `reframe()`, remember that `reframe()`
+##   always returns an ungrouped data frame and adjust accordingly.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
+<pre><code>## # A tibble: 333 × 2
+##    bill_length_mm bill_depth_mm
+##             &lt;dbl&gt;         &lt;dbl&gt;
+##  1         -0.895         0.780
+##  2         -0.822         0.119
+##  3         -0.675         0.424
+##  4         -1.33          1.08 
+##  5         -0.858         1.74 
+##  6         -0.931         0.323
+##  7         -0.876         1.24 
+##  8         -0.529         0.221
+##  9         -0.986         2.05 
+## 10         -1.72          2.00 
+## # ℹ 323 more rows</code></pre>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="data-processing.html#cb241-1" tabindex="-1"></a><span class="co"># across 多列多个统计函数</span></span>
+<span id="cb241-2"><a href="data-processing.html#cb241-2" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb241-3"><a href="data-processing.html#cb241-3" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span></span>
+<span id="cb241-4"><a href="data-processing.html#cb241-4" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb241-5"><a href="data-processing.html#cb241-5" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">ends_with</span>(<span class="st">&quot;_mm&quot;</span>), <span class="fu">list</span>(<span class="at">mean =</span> mean, <span class="at">sd =</span> sd), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb241-6"><a href="data-processing.html#cb241-6" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## Warning: There was 1 warning in `summarise()`.
+## ℹ In argument: `across(ends_with(&quot;_mm&quot;), list(mean = mean, sd = sd), na.rm =
+##   TRUE)`.
+## ℹ In group 1: `species = Adelie`.
+## Caused by warning:
+## ! The `...` argument of `across()` is deprecated as of dplyr 1.1.0.
+## Supply arguments directly to `.fns` through an anonymous function instead.
+## 
+##   # Previously
+##   across(a:b, mean, na.rm = TRUE)
+## 
+##   # Now
+##   across(a:b, \(x) mean(x, na.rm = TRUE))</code></pre>
+<pre><code>## # A tibble: 3 × 7
+##   species   bill_length_mm_mean bill_length_mm_sd bill_depth_mm_mean
+##   &lt;fct&gt;                   &lt;dbl&gt;             &lt;dbl&gt;              &lt;dbl&gt;
+## 1 Adelie                   38.8              2.66               18.3
+## 2 Chinstrap                48.8              3.34               18.4
+## 3 Gentoo                   47.6              3.11               15.0
+## # ℹ 3 more variables: bill_depth_mm_sd &lt;dbl&gt;, flipper_length_mm_mean &lt;dbl&gt;,
+## #   flipper_length_mm_sd &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="data-processing.html#cb244-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb244-2"><a href="data-processing.html#cb244-2" tabindex="-1"></a>  <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span></span>
+<span id="cb244-3"><a href="data-processing.html#cb244-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">&quot;bill_&quot;</span>),<span class="fu">list</span>(<span class="at">max =</span> max, <span class="at">min =</span> min),<span class="at">na.rm =</span> T))</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 5
+##   sex    bill_length_mm_max bill_length_mm_min bill_depth_mm_max
+##   &lt;fct&gt;               &lt;dbl&gt;              &lt;dbl&gt;             &lt;dbl&gt;
+## 1 female               58                 32.1              20.7
+## 2 male                 59.6               34.6              21.5
+## # ℹ 1 more variable: bill_depth_mm_min &lt;dbl&gt;</code></pre>
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Xie, Yihui. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.org/knitr/">http://yihui.org/knitr/</a>.
+</div>
+<div class="csl-entry">
+———. 2024. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="references.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/08-test.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
